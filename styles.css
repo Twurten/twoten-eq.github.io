@@ -16,14 +16,15 @@ footer{
     z-index: 2;
     bottom: 0;
     width: 100%;
+    background-color: #fff;
 }
 h1{
     font-family: monospace;
     text-align: center;
 }
 a{
-    color: white;
     text-decoration: none;
+    color: black;
 }
 a:hover{
     text-decoration: underline;
