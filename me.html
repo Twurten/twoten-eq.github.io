@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <title>Me</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="./files/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Righteous&display=swap" rel="stylesheet">
+
+    </head>
+        <body>
+            <button class="devt" id="dev">DEV</button>
+            <div class="app" id="devmode">
+                <a class="ttl">DevMode</a>
+                <br>
+                <input type="password" class="pwinput" id="devin" placeholder="PASSWORD">
+                <br>
+                <button class="enter" id="devc">ENTER</button>
+            </div>
+            <script src="./index.js"></script>
+            <header id="header">
+                <h1 onselectstart="return false"><span aria-hidden="true">ME</span>ME<span aria-hidden="true">ME</span></h1>
+            </header>
+            <main>
+                <div class="cont">
+                <div class="app">
+                    <a class="link" href="https://github.com/twoten-equals" target="_blank">Github</a>
+                    <img alt="github" height="100px"  src="./files/github.png">
+                </div>
+                <div class="app">
+                    <a class="link" href="https://twitter.com/twoten_equals" target="_blank">Twitter</a>
+                    <img alt="twitter" height="100px"  src="./files/twitter.jpg">
+                </div>
+                
+                <div class="app">
+                    <a class="link" href="https://210-eq.itch.io/" target="_blank">Itch.io</a>
+                    <img alt="itch.io" height="100px"  src="./files/itch.png">
+                </div>
+            </div>
+
+            <div class="cont">
+                <div class="app">
+                    <a class="link" href="https://www.patreon.com/twoten_" target="_blank">Patreon</a>
+                    <img alt="patreon" height="100px"  src="./files/patreon.png">
+                 
+                </div>
+                <div class="app">
+                    <a class="ttl">Discord</a>
+                    <button class="imgbtn" id="disc" onclick="copyDs()"><img alt="discord" height="80px"  src="./files/discord.png"></button>
+                    <a class="info">2(10#0242</a>
+                    
+                    <script>
+                            let discord = "2(10#0242";
+                            function rand(max){
+                                return Math.floor(Math.random() * max);
+                            }
+                        function copyDs(){
+                            document.getElementById("disc").classList.add('discord');
+                            navigator.clipboard.writeText(discord);
+                            setTimeout(function(){ document.getElementById("disc").classList.remove('discord'); }, 1000);
+
+                        }
+                        
+                    </script>
+                </div>
+                <div class="app" id="devonly">
+                    <a class="link" href="https://steamcommunity.com/id/twoten_/" target="_blank">Steam</a>
+                    <img alt="steam" height="100px"  src="./files/steam.png">
+                </div>
+            </div>
+
+            
+            </main>
+
+            <footer>
+                <a class="link" href="./index.html">to main</a>
+            </footer>
+        </body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./main.css">
+    <title>Main</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="icon" href="./files/icon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&family=Righteous&display=swap" rel="stylesheet">
+</head>
+        <body>
+            
+            <div class="page">
+            <header id="header">
+                <h1 onselectstart="return false"><span aria-hidden="true">MAIN</span>MAIN<span aria-hidden="true">MAIN</span></h1>
+            </header>
+            <button class="devt" id="dev">DEV</button>
+            <div class="app" id="devmode">
+                <a class="ttl">DevMode</a>
+                <br>
+                <input type="password" class="pwinput" id="devin" placeholder="PASSWORD">
+                <br>
+                <button class="enter" id="devc">ENTER</button>
+            </div>
+            <main class="i">
+                
+                <div class="cont">
+                    <div class="app" style="width: 112px; height: 140px;"  id="devonly">
+                    <a class="link" href="bots.html">Bots</a>
+                    <img src="./files/tex.png" id="leftc" alt=""><img>
+                    <img src="./files/steve.png" id="rightc" alt=""><img>
+                    </div>
+                
+                <div class="app" style="height: 190px;">
+                    <a class="ttl">Buttons</a> <br>
+                    <button class="btn" onclick="rand()" id="randm">RND</button>
+                    <button class="btn" onclick="secret()" id="secret">secret</button>
+                    <button class="btn" onclick="torf()" id="torf">T/F</button>
+                    <br>
+                    <button class="megabutton" onclick="megafunction()" id="megabtn">[ B U T T O N ]</button>
+                    <br>
+                    <button class="btn" onclick="bruh()" id="bruh">bruh</button>
+                    <button class="btn" onclick="megabruh()" id="megabruh">BRUH</button>
+                    <script>
+                
+                        function rand(){
+                            let rand = Math.floor(Math.random() * 100);
+                        
+                            document.getElementById('randm').innerHTML = rand;
+                        };
+
+                        function megabruh(){
+                            if(confirm("WARNING (loud)"))
+                            for(let i = 0; i<69; i++)
+                                bruh();
+                        }
+
+                        function secret(){
+                            document.getElementById('secret').style.backgroundColor="cyan";
+                            window.location.href = "https://youtu.be/dQw4w9WgXcQ";
+                        };
+
+                        function torf(){
+                            if(Math.floor(Math.random()*2)==0)
+                            document.getElementById('torf').innerHTML = "TRUE";
+                            else
+                            document.getElementById('torf').innerHTML = "FALSE";
+                        }
+                        
+                        function megafunction(){
+                            
+                            
+                                document.getElementById('megabtn').innerHTML = "LOADING...";
+                                document.getElementById('megabtn').style.backgroundColor="cyan";
+                                setTimeout(() => location.replace("./main/index.html"), 1500);
+                            
+                        }
+
+                       function bruh(){
+                            let audio = new Audio('./files/BRUH.m4a');
+                            audio.play();
+                        }
+                        </script>
+                        </div>
+                        <div class="app" id="devonly">
+                            <a class="link" href="./elfsnbuba/index.html">Buba</a>
+                            <img src="./elfsnbuba/img/buba.jpg" alt="Buba">
+                        </div>
+                       
+                        <div class="app">
+                            <a class="link" href="server.html">Server</a>
+                            <img src="./files/server.png" alt="Server">
+                        </div>
+                        
+                </div>
+                <div class="cont">
+                    <div class="app">
+                        <a class="link" href="idk.html">idk</a>
+                        <img src="./files/idk.png" alt="Idk">
+                    </div>
+                </div>
+             
+            </main>
+
+            <footer>
+                <h3>2(10</h3>
+                <a href="me.html" id="meb">
+                   <img src="./files/2(10v3.png" class="imglink" alt="I" height="64" onclick="">
+                </a>
+            </footer>
+
+            </div>
+        </body>
+        <!--<script src="https://cdn.jsdelivr.net/npm/p5@1.4.0/lib/p5.js"></script>-->
+        <script src="./index.js"></script>
+</html>
