@@ -8,16 +8,21 @@
 </head>
 <body>
     <footer><h1><a class="link" href="/">main</a></h1></footer>
-    <div class="container" >
+    <div class="container" id = "terminaldiv">
         <p class="p" id="firstout">hello, im a terminal</p>
         <div id="com"></div> 
         <div class="input-box" id="inputbox"><a class="input-b">></a><input type="text" autofocus=true id="input" class="input"></div>
     </div>
     <script>
+        let senderEmail = "";
+        let senderMessage = "";
+        let prev = new Array();
         let terminated = false;
+
         let input = document.getElementById("input");
         input.addEventListener("keypress", (event) => {
             let code = event.code;
+
             if(code=="Enter"){
                 switchCommand();
             }
@@ -27,11 +32,15 @@
         function switchCommand(){
             let lines = new Array();
             if(!terminated){
-            switch(input.value){
+                let inp = input.value.split(" ");
+                let comm = inp[0];
+
+            switch(comm){
                 case "?":
                 case "help":
                     lines.push("help / ? - shows the command list");
                     lines.push("soc - my contacts");
+                    lines.push("msg [your email] [message] - email me");
                     lines.push("rel - clears the terminal");
                     lines.push("exit - shuts down the terminal");
                     createOutput("COMMAND LIST:", lines);
@@ -44,6 +53,21 @@
                     createOutput("command succesfully executed", lines);
                     location.reload();
                 break;
+                case "msg":
+                    senderEmail = inp[1];
+                    senderMessage = "";
+                    for(let i = 2; i<inp.length; i++){
+                        senderMessage+=(inp[i]+" ");
+                    }
+
+                    lines.push("email: "+senderEmail);
+                    lines.push("message: "+senderMessage);
+                    createOutput("if the data below is right, type \'send\'", lines);
+                break;
+                case "send":
+                    createOutput("message sent", lines);
+                    console.log(senderMessage+" "+senderEmail);
+                break;
                 case "exit":
                     createOutput("PROGRAMM TERMINATED", lines);
                     terminated=true;
@@ -54,6 +78,7 @@
             }
             input.value="";
             }
+            document.getElementById("terminaldiv").scrollTop = document.getElementById("terminaldiv").scrollHeight;
         }
 
         function createOutput(content, additional){
