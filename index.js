@@ -1,5 +1,9 @@
-  
 let angle = 0;
+let control = false;
+
+window.addEventListener("click", function(){
+    control=!control;
+});
 
 let points = [];
 
@@ -25,6 +29,8 @@ function setup() {
 
 function draw() {
   background(0);
+  
+
   rotateX(-PI / 2);
   let projected3d = [];
 
@@ -60,15 +66,13 @@ function draw() {
     let projected = matmul(projection, rotated);
     projected.mult(width / 8);
     projected3d[i] = projected;
-
     stroke(255, 200);
-    strokeWeight(16);
+    strokeWeight(0);
     noFill();
 
     point(projected.x, projected.y, projected.z);
   }
 
-  // Connecting
   for (let i = 0; i < 4; i++) {
     connect(0, i, (i + 1) % 4, projected3d);
     connect(0, i + 4, ((i + 1) % 4) + 4, projected3d);
@@ -84,9 +88,39 @@ function draw() {
   for (let i = 0; i < 8; i++) {
     connect(0, i, i + 8, projected3d);
   }
-
-  //angle = map(mouseX, 0, width, 0, TWO_PI);
+  if(control)
+  angle = map(mouseX, 0, width, 0, TWO_PI);
+  else
   angle += 0.02;
+
+
+  translate(390, 0, 0);
+  push();
+  if(control){
+    rotateZ(mouseX * 0.01);
+    rotateX(mouseX * 0.01);
+    rotateY(mouseX * 0.01);
+  }else{
+    rotateZ(frameCount * 0.01);
+    rotateX(frameCount * 0.01);
+    rotateY(frameCount * 0.01);
+  }
+  box(70, 70, 70);
+  pop();
+
+  translate(-780, 0, 0);
+  push();
+  if(control){
+    rotateZ(mouseX * 0.01);
+    rotateX(mouseX * 0.01);
+    rotateY(mouseX * 0.01);
+  }else{
+    rotateZ(frameCount * 0.01);
+    rotateX(frameCount * 0.01);
+    rotateY(frameCount * 0.01);
+  }
+  box(70, 70, 70);
+  pop();
 }
 
 function connect(offset, i, j, points) {
