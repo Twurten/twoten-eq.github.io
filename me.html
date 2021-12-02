@@ -59,14 +59,23 @@
                     for(let i = 2; i<inp.length; i++){
                         senderMessage+=(inp[i]+" ");
                     }
-
-                    lines.push("email: "+senderEmail);
-                    lines.push("message: "+senderMessage);
-                    createOutput("if the data below is right, type \'send\'", lines);
+                    
+                    if(senderEmail!=null && senderMessage!=""){
+                        lines.push("email: "+senderEmail);
+                        lines.push("message: "+senderMessage);
+                        createOutput("if the data below is right, type \'send\'", lines);
+                    }else{
+                        lines.push("please fill the fields correctly")
+                        createOutput("error", lines);
+                    }
                 break;
                 case "send":
-                    createOutput("message sent", lines);
-                    console.log(senderMessage+" "+senderEmail);
+                    if(senderEmail!=null && senderMessage!=""){
+                        createOutput("message sent", lines);
+                        console.log(senderMessage+" "+senderEmail);
+                    }else{
+                        createOutput("run the \'msg\' command first", lines);
+                    }
                 break;
                 case "exit":
                     createOutput("PROGRAMM TERMINATED", lines);
