@@ -40,7 +40,7 @@ h1{
     padding: 1em;
     border: 1px solid white;
     height: 30em;
-    width: 60em;
+    width: 70em;
     margin: 6em auto;
     word-wrap: break-word;
     overflow-y: scroll;
@@ -50,7 +50,7 @@ h1{
 .soc::before{
     position: absolute;
     color: white;
-    content: "socials {";
+    content: "my_social_media{";
     top: -2em;
     left: 0;
 }
@@ -62,11 +62,11 @@ h1{
     left: 0;
 }
 .soc{
+    font-size: 1em;
     position: relative;
     padding: 1em;
-    border: 1px solid white;
     height: 10em;
-    width: 60em;
+    width: 70em;
     margin: 6em auto;
 }
 
@@ -98,13 +98,12 @@ h1{
     display: block;
     margin-left: 1em;
 }
-.p::first-letter{
-    color: rgb(31, 184, 184);
-}
+
 
 .p::before{
     margin-right: 0.5em;
     content: ">";
+    color: rgb(31, 184, 184);
 }
 
 
@@ -117,6 +116,7 @@ h1{
     background-color: #000;
     border: none;
     color: white;
+    font-weight: bold;
 }
 
 
@@ -127,9 +127,20 @@ h1{
 .input-b{
     display: flex;
     margin: 0.4em;
-    color: rgb(31, 184, 184);
+    color: rgb(165, 80, 11);
 }
 
+.pi{
+    margin: 0.4em;
+    color: white;
+    opacity: 0.7;
+}
+
+.pi::before{
+    margin-right: 0.5em;
+    content: "<";
+    color: rgb(165, 80, 11);
+}
 
 .input-box{
     margin: 0;
@@ -137,3 +148,12 @@ h1{
     display: flex;
 }
 
+
+.imglink img{
+    height: 8em;
+}
+
+.imglink img:hover{
+    border: 1px solid white;
+    cursor: pointer;
+}

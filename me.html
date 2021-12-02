@@ -11,9 +11,10 @@
     <div class="container" id = "terminaldiv">
         <p class="p" id="firstout">hello, im a terminal <a>type 'help'</a></p>
         <div id="com"></div> 
-        <div class="input-box" id="inputbox"><a class="input-b">></a><input type="text" autofocus=true id="input" class="input"></div>
+        <div class="input-box" id="inputbox"><a class="input-b" id="tmpid"></a><input type="text" autofocus=true id="input" class="input"></div>
     </div>
     <script>
+        document.getElementById("tmpid").innerHTML="<";
         let senderEmail = "";
         let senderMessage = "";
         let prev = new Array();
@@ -24,8 +25,15 @@
             let code = event.code;
 
             if(code=="Enter"){
-                if(input.value!="")
+                if(input.value!=""){
+                let inputt = document.createElement("p");
+                inputt.innerHTML=input.value;
+                inputt.classList.add("pi");
+                let div = document.getElementById("com");
+                div.appendChild(inputt);
+
                 switchCommand();
+                }
             }
         }, false);
 
@@ -40,6 +48,7 @@
                 case "?":
                 case "help":
                     lines.push("help / ? - shows the command list");
+                    lines.push("inf - about me");
                     lines.push("soc - my contacts");
                     lines.push("msg [your email] [message] - email me");
                     lines.push("rel - clears the terminal");
@@ -47,7 +56,10 @@
                     createOutput("COMMAND LIST:", lines);
                 break;
                 case "soc":
+                    if(document.getElementById("soc").style.display != "block")
                     document.getElementById("soc").style.display = "block";
+                    else
+                    document.getElementById("soc").style.display = "none";
                     createOutput("command succesfully executed", lines);
                 break;
                 case "rel":
@@ -69,6 +81,9 @@
                         lines.push("please fill the fields correctly")
                         createOutput("error", lines);
                     }
+                break;
+                case "inf":
+                    
                 break;
                 case "send":
                     if(senderEmail!=null && senderMessage!=""){
@@ -104,9 +119,20 @@
                 output.appendChild(outputPlus);
             }
         }
+
+
+        function copy(str){
+            navigator.clipboard.writeText(str);
+            switch(str){
+                case "2(10#0242":
+                createOutput("copied discord username", new Array());
+                break;
+            }
+            
+        }
     </script>
     <div class="soc" id="soc" style="display: none;">
-        <img>
+        <a class="imglink" onclick="copy('2(10#0242')"><img src="./img/discord.png" alt="DISCORD"></a>
         <img>
         <img>
     </div>
