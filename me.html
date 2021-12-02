@@ -56,14 +56,16 @@
                     createOutput("COMMAND LIST:", lines);
                 break;
                 case "soc":
-                    if(document.getElementById("soc").style.display != "block")
+                    if(document.getElementById("soc").style.display != "block"){
                     document.getElementById("soc").style.display = "block";
-                    else
+                    createOutput("social media shown", lines);
+                    }else{
                     document.getElementById("soc").style.display = "none";
-                    createOutput("command succesfully executed", lines);
+                    createOutput("social media hidden", lines);
+                    }
                 break;
                 case "rel":
-                    createOutput("command succesfully executed", lines);
+                    createOutput("reloading...", lines);
                     location.reload();
                 break;
                 case "msg":
@@ -83,7 +85,7 @@
                     }
                 break;
                 case "inf":
-                    
+
                 break;
                 case "send":
                     if(senderEmail!=null && senderMessage!=""){
