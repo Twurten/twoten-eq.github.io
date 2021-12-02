@@ -1,6 +1,8 @@
 let angle = 0;
 let control = false;
 
+
+
 window.addEventListener("click", function(){
     control=!control;
 });
@@ -130,3 +132,6 @@ function connect(offset, i, j, points) {
   const b = points[j + offset];
   line(a.x, a.y, a.z, b.x, b.y, b.z);
 }
+
+
+

@@ -7,7 +7,73 @@
     <link rel="icon" href="./img/2(10.png">
 </head>
 <body>
-    <footer><h1><a href="/">main</a></h1></footer>
+    <footer><h1><a class="link" href="/">main</a></h1></footer>
+    <div class="container" >
+        <p class="p" id="firstout">hello, im a terminal</p>
+        <div id="com"></div> 
+        <div class="input-box" id="inputbox"><a class="input-b">></a><input type="text" autofocus=true id="input" class="input"></div>
+    </div>
+    <script>
+        let terminated = false;
+        let input = document.getElementById("input");
+        input.addEventListener("keypress", (event) => {
+            let code = event.code;
+            if(code=="Enter"){
+                switchCommand();
+            }
+        }, false);
 
+
+        function switchCommand(){
+            let lines = new Array();
+            if(!terminated){
+            switch(input.value){
+                case "?":
+                case "help":
+                    lines.push("help / ? - shows the command list");
+                    lines.push("soc - my contacts");
+                    lines.push("rel - clears the terminal");
+                    lines.push("exit - shuts down the terminal");
+                    createOutput("COMMAND LIST:", lines);
+                break;
+                case "soc":
+                    document.getElementById("soc").style.display = "block";
+                    createOutput("command succesfully executed", lines);
+                break;
+                case "rel":
+                    createOutput("command succesfully executed", lines);
+                    location.reload();
+                break;
+                case "exit":
+                    createOutput("PROGRAMM TERMINATED", lines);
+                    terminated=true;
+                break;
+                default:
+                    createOutput("unknown command", lines);
+                break;
+            }
+            input.value="";
+            }
+        }
+
+        function createOutput(content, additional){
+            let output = document.createElement("p");
+            output.innerHTML=content;
+            output.classList.add("p");
+            let div = document.getElementById("com");
+            div.appendChild(output);
+            
+            for(let i = 0; i<additional.length; i++){
+                let outputPlus = document.createElement("a");
+                outputPlus.innerHTML=additional[i];
+                output.appendChild(outputPlus);
+            }
+        }
+    </script>
+    <div class="soc" id="soc" style="display: none;">
+        <img>
+        <img>
+        <img>
+    </div>
 </body>
 </html>
