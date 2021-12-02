@@ -3,9 +3,13 @@ let control = false;
 
 
 
-window.addEventListener("click", function(){
+window.addEventListener("keypress", (event) => {
+  let code = event.code;
+  
+  if(code=="Space"){
     control=!control;
-});
+  }
+}, false);
 
 let points = [];
 
