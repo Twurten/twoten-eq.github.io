@@ -26,7 +26,7 @@
         input.addEventListener("keypress", (event) => {
             let code = event.code;
 
-            if(code=="Enter"){
+            if(code=="Enter" && !terminated){
                 if(input.value!=""){
                 let inputt = document.createElement("p");
                 inputt.innerHTML=input.value;
@@ -41,8 +41,7 @@
 
 
         function switchCommand(){
-            let lines = new Array();
-            if(!terminated){
+                let lines = new Array();
                 let inp = input.value.split(" ");
                 let comm = inp[0];
 
@@ -52,7 +51,7 @@
                     lines.push("help / ? - shows the command list");
                     lines.push("inf - about me");
                     //lines.push("soc - my contacts");
-                    lines.push("msg [message] - send me a message through discord");
+                    lines.push("msg [message] - send me a message through my discord bot");
                     lines.push("mail [your email] [message] - email me");
                     lines.push("rel - clears the terminal");
                     lines.push("exit - shuts down the terminal");
@@ -115,7 +114,7 @@
                 break;
             }
             input.value="";
-            }
+            
             document.getElementById("terminaldiv").scrollTop = document.getElementById("terminaldiv").scrollHeight;
         }
 
