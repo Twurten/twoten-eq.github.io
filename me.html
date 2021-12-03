@@ -73,7 +73,7 @@
                 case "msg":
                     for(let i = 1; i<inp.length; i++)
                         discordMessage+=(inp[i]+" ");
-                    lines.push(discordMessage);
+                    //lines.push(discordMessage);
                     createOutput("feature is disabled", lines);
                     discordMessage="";
                 break;
@@ -96,7 +96,7 @@
                     senderMessage = "";
                 break;
                 case "inf":
-
+                    createOutput("ABOUT ME",lines);
                 break;
                 case "send":
                     if(senderEmail!=null && senderMessage!=""){
