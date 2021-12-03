@@ -25,10 +25,7 @@ footer{
 h1{
     text-align: center;
 }
-.link{
-    text-decoration: none;
-    color: black;
-}
+
 .link:hover{
     text-decoration: underline;
 }
@@ -49,14 +46,14 @@ h1{
     position: absolute;
     color: white;
     content: "}";
-    bottom: 0.5em;
-    left: 1em;
+    bottom: 1em;
+    left: 1.4em;
 }
 .soc{
     font-size: 1em;
     position: relative;
-    padding: 1em;
-    height: 10em;
+    padding-left: 1em;
+    height: 4em;
     width: 70em;
 }
 
@@ -157,9 +154,35 @@ a{
     cursor: pointer;
 }
 
-   
+.btn{
+    color: white;
+    font-family: monospace;
+    background-color: #000;
+    border: none;
+    margin-top: 0;
+}
+
+.btn:hover{
+    border: 1px solid white;
+}
+
+.btn:active::first-letter{
+    color: rgb(165, 80, 11);
+}
+
+.btn:active{
+    background-color: #fff;
+    color: black;
+}
 
 #firstout,
 *{
     font-size: 1.04em;
+}
+
+
+.link{
+    text-decoration: none;
+    color: black;
+    font-size: 2em;
 }
