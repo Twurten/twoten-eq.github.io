@@ -7,9 +7,6 @@ body{
     font-size: 1em;
 }
 
-*{
-    box-sizing: border-box;
-}
 .t{
     position: fixed;
 }
@@ -86,6 +83,7 @@ h1{
 .p{
     margin: 0.4em;
     color: white;
+    font-size: 1em;
 }
 .p a{
     display: block;
@@ -113,8 +111,8 @@ h1{
 }
 
 .input-box:hover{
-    border-top: 1px solid white;
-    border-bottom: 1px solid white;
+    border-top: 0.1em    solid white;
+    border-bottom: 0.1em solid white;
 }
 
 .input:focus{
@@ -131,12 +129,14 @@ h1{
     margin: 0.4em;
     color: white;
     opacity: 0.7;
+    font-size: inherit;
 }
 
 .pi::before{
     margin-right: 0.5em;
     content: "<";
     color: rgb(165, 80, 11);
+    font-size: inherit;
 }
 
 .input-box{
@@ -149,8 +149,17 @@ h1{
 .imglink img{
     height: 8em;
 }
-
+a{
+    font-size: inherit;
+}
 .imglink img:hover{
     border: 1px solid white;
     cursor: pointer;
+}
+
+   
+
+#firstout,
+*{
+    font-size: 1.04em;
 }
