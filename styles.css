@@ -37,29 +37,23 @@ h1{
 }
 
 .container{
-    padding: 1em;
-    border: 1px solid white;
-    height: 35em;
-    width: 70em;
-    margin: 6em auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
     word-wrap: break-word;
     overflow-y: scroll;
     overflow-x: hidden;
 }
 
-.soc::before{
-    position: absolute;
-    color: white;
-    content: "my_social_media{";
-    top: -1em;
-    left: 0;
-}
+
 .soc::after{
     position: absolute;
     color: white;
     content: "}";
-    bottom: -1em;
-    left: 0;
+    bottom: 0.5em;
+    left: 1em;
 }
 .soc{
     font-size: 1em;
@@ -67,7 +61,6 @@ h1{
     padding: 1em;
     height: 10em;
     width: 70em;
-    margin: 6em auto;
 }
 
 ::-webkit-scrollbar{
@@ -119,6 +112,10 @@ h1{
     font-weight: bold;
 }
 
+.input-box:hover{
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+}
 
 .input:focus{
     outline: none;

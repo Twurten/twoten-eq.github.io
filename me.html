@@ -8,7 +8,6 @@
     <script src="./mail.js"></script>
 </head>
 <body>
-    <footer><h1><a class="link" href="/">main</a></h1></footer>
     <div class="container" id = "terminaldiv">
         <p class="p" id="firstout">welcome to the terminal <a>type 'help'</a></p>
         <div id="com"></div>
@@ -50,7 +49,8 @@
                 case "help":
                     lines.push("help / ? - shows the command list");
                     lines.push("inf - about me");
-                    //lines.push("soc - my contacts");
+                    lines.push("soc - my contacts");
+                    lines.push("to [page] - redirects you to another page");
                     lines.push("msg [message] - send me a message through my discord bot");
                     lines.push("mail [your email] [message] - email me");
                     lines.push("rel - clears the terminal");
@@ -58,13 +58,12 @@
                     createOutput("COMMAND LIST:", lines);
                 break;
                 case "soc":
-                    /*if(document.getElementById("soc").style.display != "block"){
-                        document.getElementById("soc").style.display = "block";
-                        createOutput("soc shown", lines);
-                    }else{
-                        document.getElementById("soc").style.display = "none";
-                        createOutput("soc hidden", lines);
-                    }*/
+                    createOutput("soc{",lines);
+                    let output = document.createElement("div");
+                    output.classList.add("soc");
+                    let div = document.getElementById("com");
+                    div.appendChild(output);
+                    
                 break;
                 case "rel":
                     createOutput("reloading...", lines);
@@ -76,6 +75,16 @@
                     //lines.push(discordMessage);
                     createOutput("feature is disabled", lines);
                     discordMessage="";
+                break;
+                case "to":
+                    if(inp[1]!=null){
+                        createOutput("redirecting...", lines);
+                        input.value="";
+                        location.replace("https://twoten-equals.github.io/"+inp[1]);
+                    }else{
+                        lines.push("the argument cannot be empty")
+                        createOutput("error",lines)
+                    }
                 break;
                 case "mail":
                     senderEmail = inp[1];
@@ -89,7 +98,7 @@
                         lines.push("message: "+senderMessage);
                         createOutput("if the data below is right, type \'send\'", lines);
                     }else{
-                        lines.push("please fill the fields correctly")
+                        lines.push("the arguments cannot be empty")
                         createOutput("error", lines);
                     }
                     senderEmail = "";
@@ -113,8 +122,8 @@
                     createOutput("unknown command", lines);
                 break;
             }
+
             input.value="";
-            
             document.getElementById("terminaldiv").scrollTop = document.getElementById("terminaldiv").scrollHeight;
         }
 
@@ -132,12 +141,10 @@
             }
         }
 
-
         function copy(str){
             navigator.clipboard.writeText(str);
                 createOutput("copied", new Array());
         }
-
     </script>
 </body>
 </html>
