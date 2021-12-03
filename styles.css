@@ -39,7 +39,7 @@ h1{
 .container{
     padding: 1em;
     border: 1px solid white;
-    height: 30em;
+    height: 35em;
     width: 70em;
     margin: 6em auto;
     word-wrap: break-word;
@@ -51,14 +51,14 @@ h1{
     position: absolute;
     color: white;
     content: "my_social_media{";
-    top: -2em;
+    top: -1em;
     left: 0;
 }
 .soc::after{
     position: absolute;
     color: white;
     content: "}";
-    bottom: -2em;
+    bottom: -1em;
     left: 0;
 }
 .soc{

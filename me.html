@@ -5,18 +5,20 @@
     <title>Me</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="icon" href="./img/2(10.png">
+    <script src="./mail.js"></script>
 </head>
 <body>
     <footer><h1><a class="link" href="/">main</a></h1></footer>
     <div class="container" id = "terminaldiv">
         <p class="p" id="firstout">hello, im a terminal <a>type 'help'</a></p>
-        <div id="com"></div> 
+        <div id="com"></div>
         <div class="input-box" id="inputbox"><a class="input-b" id="tmpid"></a><input type="text" autofocus=true id="input" class="input"></div>
     </div>
     <script>
         document.getElementById("tmpid").innerHTML="<";
         let senderEmail = "";
         let senderMessage = "";
+        let discordMessage = "";
         let prev = new Array();
         let terminated = false;
 
@@ -49,26 +51,34 @@
                 case "help":
                     lines.push("help / ? - shows the command list");
                     lines.push("inf - about me");
-                    lines.push("soc - my contacts");
-                    lines.push("msg [your email] [message] - email me");
+                    //lines.push("soc - my contacts");
+                    lines.push("msg [message] - send me a message through discord");
+                    lines.push("mail [your email] [message] - email me");
                     lines.push("rel - clears the terminal");
                     lines.push("exit - shuts down the terminal");
                     createOutput("COMMAND LIST:", lines);
                 break;
                 case "soc":
-                    if(document.getElementById("soc").style.display != "block"){
-                    document.getElementById("soc").style.display = "block";
-                    createOutput("social media shown", lines);
+                    /*if(document.getElementById("soc").style.display != "block"){
+                        document.getElementById("soc").style.display = "block";
+                        createOutput("soc shown", lines);
                     }else{
-                    document.getElementById("soc").style.display = "none";
-                    createOutput("social media hidden", lines);
-                    }
+                        document.getElementById("soc").style.display = "none";
+                        createOutput("soc hidden", lines);
+                    }*/
                 break;
                 case "rel":
                     createOutput("reloading...", lines);
                     location.reload();
                 break;
                 case "msg":
+                    for(let i = 1; i<inp.length; i++)
+                        discordMessage+=(inp[i]+" ");
+                    lines.push(discordMessage);
+                    createOutput("feature is disabled", lines);
+                    discordMessage="";
+                break;
+                case "mail":
                     senderEmail = inp[1];
                     senderMessage = "";
                     for(let i = 2; i<inp.length; i++){
@@ -83,16 +93,17 @@
                         lines.push("please fill the fields correctly")
                         createOutput("error", lines);
                     }
+                    senderEmail = "";
+                    senderMessage = "";
                 break;
                 case "inf":
 
                 break;
                 case "send":
                     if(senderEmail!=null && senderMessage!=""){
-                        createOutput("message sent", lines);
-                        console.log(senderMessage+" "+senderEmail);
+                        createOutput("feature is disabled", lines);
                     }else{
-                        createOutput("run the \'msg\' command first", lines);
+                        createOutput("run the \'mail\' command first", lines);
                     }
                 break;
                 case "exit":
@@ -125,18 +136,9 @@
 
         function copy(str){
             navigator.clipboard.writeText(str);
-            switch(str){
-                case "2(10#0242":
-                createOutput("copied discord username", new Array());
-                break;
-            }
-            
+                createOutput("copied", new Array());
         }
+
     </script>
-    <div class="soc" id="soc" style="display: none;">
-        <a class="imglink" onclick="copy('2(10#0242')"><img src="./img/discord.png" alt="DISCORD"></a>
-        <img>
-        <img>
-    </div>
 </body>
 </html>
