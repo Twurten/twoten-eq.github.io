@@ -1,0 +1,136 @@
+body, html{
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #181818;
+}
+html{
+    scroll-behavior: smooth;
+}
+.back{
+    background-color: #fff;
+    width: 3em;
+    height: 3em;
+    position: fixed;
+    border-bottom-right-radius: 1em;
+}
+
+.back svg path{
+    transition: 0.5s;
+    opacity: 0.5;
+}
+.back:hover svg path{
+    transition: 0.5s;
+    opacity: 1;
+}
+@keyframes chillin{
+    0%{
+        transform: translate(0%, 0%);
+    }
+    10%{
+        transform: translate(1%, 1%);
+    }
+    20%{
+        transform: translate(0%, 1%);
+    }
+    30%{
+        transform: translate(-1%, 0%);
+    }
+    40%{
+        transform: translate(1%, 1%);
+    }
+    50%{
+        transform: translate(2%, -1%);
+    }
+    60%{
+        transform: translate(0%, 0%);
+    }
+    70%{
+        transform: translate(1%, 1%);
+    }
+    80%{
+        transform: translate(-1%, -1%);
+    }
+    90%{
+        transform: translate(0%, 2%);
+    }
+    100%{
+        transform: translate(0%, 0%);
+    }
+}
+
+.grid{
+    display: grid;
+    height: 100%;
+    width: 100%;
+}
+
+.children-center-v{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.row{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.row div:nth-child(even) {
+    animation-delay: 1s;
+}
+
+.row:nth-child(even) div:nth-child(even){
+    animation-delay: 0s;
+}
+.row:nth-child(even) div:nth-child(odd){
+    animation-delay: 1s;
+}
+
+.row div{
+    justify-content: center;
+    border-radius: 1em;
+    transition: 0.69s;
+    animation: chillin 5s infinite;
+    display: flex;
+    background-color: #fff;
+    width: 10em;
+    height: 10em;
+}
+.row div h1{
+    margin-top: 0em;
+    text-align: center;
+    width: 100%;
+    height: 1em;
+}
+.row div img{
+    border: none;
+    align-self: center;
+    position: fixed;
+    width: 5em;
+    height: 5em;
+    transition: 0.69s;
+}
+.row div:hover{
+    animation: none;
+    width: 12em;
+    height: 12em;
+}
+
+.row div:hover img{
+    width: 7em;
+    height: 7em;
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+  }
