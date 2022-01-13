@@ -84,17 +84,31 @@ html{
     width: 2em;
     height: 2em;
     background-color: rgb(15, 173, 201);
+    border-radius: 0.3em;
 }
+
+.select{
+    width: 14em;
+}
+
+.center-h-bruh{
+    display: flex;
+    margin: 0 auto;
+}
+
 .searchbar{
     position: relative;
     width: 16em;
     height: 2em;
     padding: 0;
-    border-radius: 1em;
-    overflow: hidden;
+    border-radius: 0.3em;
+    box-shadow: black 0 0 .1em;
+}
+.size-small{
+    width: 4em;
 }
 .searchbar input{
-    border-radius: 1em;
+    border-radius: 0.3em;
     font-size: 1.4em;
     width: 100%;
     margin: 0;
@@ -102,6 +116,24 @@ html{
     border: none;
     height: 100%;
 }
+
+.txt-center{
+    text-align: center;
+}
+
+h1{
+    margin-bottom: 0.2em;
+}
+.center-h{
+    margin: 0 auto;
+}
+.square{
+    width: 25em;
+    height: 40em;
+    border-radius: 1em;
+    background-color: #fff;
+}
+
 .searchbar input:focus{
     outline: none;
 }
