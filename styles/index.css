@@ -77,6 +77,15 @@ html{
     align-items: center;
     justify-content: center; 
 }
+#canvas{
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 2;
+}
+.result{
+    display: none;
+}
 .searchbar .btn{
     position: absolute;
     top: 0;
@@ -116,7 +125,9 @@ html{
     border: none;
     height: 100%;
 }
-
+.size-med{
+    width: 8em;
+}
 .txt-center{
     text-align: center;
 }
@@ -128,12 +139,15 @@ h1{
     margin: 0 auto;
 }
 .square{
+    margin: 4em;
     width: 25em;
     height: 40em;
     border-radius: 1em;
     background-color: #fff;
 }
-
+.height-med{
+    height: 18em;
+}
 .searchbar input:focus{
     outline: none;
 }
@@ -150,7 +164,19 @@ h1{
     align-items: center;
     justify-content: space-around;
 }
-
+.btn{
+    width: 8em;
+    height: 3em;
+    background-color: rgb(16, 190, 190);
+    border: 1px solid black;
+    border-radius: 1em;
+}
+.btn:hover{
+    background-color: rgb(22, 201, 201);
+}
+.btn:active{
+    background-color: rgb(205, 218, 26);
+}
 .row div:nth-child(even) {
     animation-delay: 1s;
 }
@@ -206,3 +232,5 @@ h1{
               user-select: none; /* Non-prefixed version, currently
                                     supported by Chrome, Edge, Opera and Firefox */
   }
+
+
