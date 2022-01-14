@@ -17,6 +17,7 @@ html{
 
 
 @keyframes chillin{
+
     0%{
         transform: translate(0%, 0%);
     }
@@ -51,6 +52,7 @@ html{
         transform: translate(0%, 0%);
     }
 }
+
 *{
     box-sizing: border-box;
     font-family: 'Segoe UI Variable', sans-serif;
@@ -191,7 +193,7 @@ h1{
     animation-delay: 1s;
 }
 
-.row div{
+.row div[onclick]{
     justify-content: center;
     border-radius: 1em;
     transition: 0.69s;
