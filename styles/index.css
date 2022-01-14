@@ -78,22 +78,21 @@ html{
     justify-content: center; 
 }
 #canvas{
-    top: 0;
-    left: 0;
-    position: absolute;
-    z-index: 2;
+    max-width: 100%;
+    max-height: 100%;
 }
 .result{
     display: none;
 }
 .searchbar .btn{
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 2em;
-    height: 2em;
+    top: -0.1em;
+    right: -0.1em;
+    width: 2.2em;
+    height: 2.2em;
     background-color: rgb(15, 173, 201);
     border-radius: 0.3em;
+    box-shadow: black 0 0 .1em;
 }
 
 .select{
@@ -139,6 +138,7 @@ h1{
     margin: 0 auto;
 }
 .square{
+    overflow: hidden;
     margin: 4em;
     width: 25em;
     height: 40em;
@@ -147,6 +147,9 @@ h1{
 }
 .height-med{
     height: 18em;
+}
+.width-med{
+    width: 18em;
 }
 .searchbar input:focus{
     outline: none;
