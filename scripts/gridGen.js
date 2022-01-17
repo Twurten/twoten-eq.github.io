@@ -1,6 +1,5 @@
 function generate(cwidth, cheight, rows, collumns) {
     let canvas = document.getElementById("canvas");
-    console.log(canvas)
     let ctx = canvas.getContext("2d");
     canvas.width=cwidth;
     canvas.height=cheight;
