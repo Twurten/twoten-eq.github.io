@@ -5,25 +5,52 @@ let w, h
 
 function init(){
     cs=10
-    w=100
-    h=100
+    w=200
+    h=200
     generation = new Array(w)
     for(let i = 0; i<generation.length; i++){
         generation[i] = new Array(h)
     }
-    fill(generation)
+    fill(generation, "rnd")
+    generation[5][5]=1
+    generation[6][5]=1
+    generation[7][5]=1
+    generation[7][4]=1
+    generation[6][3]=1
     canvas=document.getElementById("life")
+    canvas.addEventListener("click", setCell(), false)
     ctx = canvas.getContext("2d")
-    canvas.width=w*10
-    canvas.height=h*10
+    canvas.width=w*cs
+    canvas.height=h*cs
    
-    repaint() 
+    repaint()
+    window.requestAnimationFrame(step);
 }
 
-let fill = (array) => {
-    for(let i = 0; i<array.length; i++){
-        for(let j = 0; j<array[0].length; j++){
-            array[i][j] = Math.round(Math.random())
+function setCell(){
+
+}
+
+let fill = (array, what) => {
+    if(what==0){
+        for(let i = 0; i<array.length; i++){
+            for(let j = 0; j<array[0].length; j++){
+                array[i][j] = 0
+            }
+        }
+    }
+    if(what=="rnd"){
+        for(let i = 0; i<array.length; i++){
+            for(let j = 0; j<array[0].length; j++){
+                array[i][j] = Math.round(Math.random())
+            }
+        }
+    }
+    if(what==1){
+        for(let i = 0; i<array.length; i++){
+            for(let j = 0; j<array[0].length; j++){
+                array[i][j] = 1
+            }
         }
     }
 
@@ -36,18 +63,56 @@ function repaint(){
     ctx.fillStyle = "black"
     for(let i = 0; i<generation.length; i++){
         for(let j = 0; j<generation[0].length; j++){
-            if(generation[i][j]==0)
+            if(generation[i][j]==1)
                 ctx.fillRect(i*10,j*10,cs,cs)
-
         }
     }
 }
 
-let nextstep = (array) => {
+function nextstep(){
+    let array = new Array(w)
     for(let i = 0; i<array.length; i++){
-        for(let j = 0; j<array[0].length; j++){
+        array[i] = new Array(h)
+    }
+
+    for(let ic = 1; ic<generation.length-1; ic++){
+        for(let jc = 1; jc<generation[0].length-1; jc++){
+            let aliveCells = 0;
+            
+            for(let i = -1; i<2; i++){
+                for(let j = -1; j<2; j++){
+                    if(!(i==0&&j==0)){
+                        if(generation[ic+i][jc+j]==1)
+                        aliveCells++
+                    }
+                }
+            }
+
+            if(generation[ic][jc]==1){
+                if(aliveCells==2||aliveCells==3){
+                    array[ic][jc]=1
+                }else{
+                    array[ic][jc]=0
+                }
+            }else{
+                if(aliveCells==3){
+                    array[ic][jc]=1
+                }
+            }
             
         }
     }
+    generation=array
+}
+let stepc = 0;
+let speed = 10;
 
+function step(timestamp) {
+    stepc++
+    if(stepc==speed){
+        nextstep()
+        repaint()
+        stepc=0
+    }
+    window.requestAnimationFrame(step);
 }

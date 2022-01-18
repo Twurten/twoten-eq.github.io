@@ -116,8 +116,9 @@
                         input.value="";
                         location.replace("https://twoten-eq.github.io/"+inp[1]);
                     }else{
-                        lines.push("the argument cannot be empty")
-                        createOutput("error",lines)
+                        createOutput("redirecting...", lines);
+                        input.value="";
+                        location.replace("https://twoten-eq.github.io/")
                     }
                 break;
                 case "eml":

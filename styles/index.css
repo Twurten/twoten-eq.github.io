@@ -95,6 +95,9 @@ html{
     max-height: 100%;
     border-radius: 1em;
 }
+#life{
+    margin: auto;
+}
 .result{
     display: none;
 }
@@ -193,16 +196,7 @@ h1{
 .btn:active{
     background-color: rgb(205, 218, 26);
 }
-.row div:nth-child(even) {
-    animation-delay: 1s;
-}
 
-.row:nth-child(even) div:nth-child(even){
-    animation-delay: 0s;
-}
-.row:nth-child(even) div:nth-child(odd){
-    animation-delay: 1s;
-}
 
 .row div[onclick]{
     justify-content: center;
@@ -237,6 +231,13 @@ h1{
 .row div:hover img{
     width: 7em;
     height: 7em;
+}
+
+.row div:nth-child(even){
+    animation-delay: 0s;
+}
+.row div:nth-child(odd){
+    animation-delay: 1s;
 }
 
 .noselect {
