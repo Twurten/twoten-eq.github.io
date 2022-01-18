@@ -5,7 +5,7 @@ function redirect(href, timeout){
         newloc+=loc[i]+"/";
     }
     setTimeout(function(){
-        location = newloc+href+".html";
+        location = newloc+href/*+".html"*/;
     },timeout);
 }
 
