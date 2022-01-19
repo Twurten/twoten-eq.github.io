@@ -15,7 +15,18 @@ html{
     border-bottom-right-radius: 1em;
 }
 
-
+.pamel{
+    display: grid;
+    position: fixed;
+    top: 3em;
+    width: 3em;
+    height: 6em;
+}
+.button-l{
+    background-color: #fff;
+    width: 3em;
+    height: 3em;
+}
 @keyframes chillin{
 
     0%{

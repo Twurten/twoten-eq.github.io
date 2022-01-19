@@ -12,11 +12,6 @@ function init(){
         generation[i] = new Array(h)
     }
     fill(generation, "rnd")
-    generation[5][5]=1
-    generation[6][5]=1
-    generation[7][5]=1
-    generation[7][4]=1
-    generation[6][3]=1
     canvas=document.getElementById("life")
     canvas.addEventListener("click", setCell(), false)
     ctx = canvas.getContext("2d")
@@ -75,14 +70,14 @@ function nextstep(){
         array[i] = new Array(h)
     }
 
-    for(let ic = 1; ic<generation.length-1; ic++){
-        for(let jc = 1; jc<generation[0].length-1; jc++){
+    for(let ic = 0; ic<generation.length; ic++){
+        for(let jc = 0; jc<generation[0].length; jc++){
             let aliveCells = 0;
             
             for(let i = -1; i<2; i++){
                 for(let j = -1; j<2; j++){
                     if(!(i==0&&j==0)){
-                        if(generation[ic+i][jc+j]==1)
+                        if(generation[(ic+i+w)%w][(jc+j+h)%h]==1)
                         aliveCells++
                     }
                 }
