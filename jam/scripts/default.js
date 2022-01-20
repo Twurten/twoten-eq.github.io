@@ -12,7 +12,7 @@ function redir(href){
     for(let i = 0; i<loc.length-1; i++){
         newloc+=loc[i]+"/";
     }
-    location = newloc+href+".html";////////////////////////
+    location = newloc+href/*+".html"*/;
 }
 function toggle(){
     let buttons = document.querySelectorAll("[id='BTN']");
