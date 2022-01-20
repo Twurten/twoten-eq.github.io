@@ -3,14 +3,13 @@ let ctx
 let generation
 let w, h
 let paused = false
-let btn = document.getElementById("pause")
 
 function pause(){
     paused=!paused
     if(paused){
-
+        document.getElementById("pause").style="transform: rotate(90deg); clip-path: polygon(50% 0%, 0% 100%, 100% 100%);" 
     }else{
-        
+        document.getElementById("pause").style="transform: rotate(0deg); clip-path: none"
     }
 }
 

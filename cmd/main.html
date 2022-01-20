@@ -141,7 +141,7 @@
                         senderMessage+=(inp[i]+" ");
                     }
                     
-                    if(senderEmail!=null && senderMessage!=""){
+                    if(senderEmail!="" && senderMessage!=""){
                         lines.push("email: "+senderEmail);
                         lines.push("message: "+senderMessage);
                         createOutput("if the data below is correct, type \'send\'", lines);
@@ -149,15 +149,13 @@
                         lines.push("the arguments cannot be empty")
                         createOutput("error", lines);
                     }
-                    senderEmail = "";
-                    senderMessage = "";
                 break;
                 case "inf":
                     createOutput("ABOUT ME",lines);
                 break;
                 case "send":
-                    if(senderEmail!=null && senderMessage!=""){
-                        createOutput("feature is disabled?", lines);
+                    if(senderEmail!="" && senderMessage!=""){
+                        createOutput("feature is disabled", lines);
                     }else{
                         createOutput("run the \'eml\' command first", lines);
                     }

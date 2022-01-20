@@ -13,13 +13,17 @@ html{
     height: 3em;
     position: fixed;
     border-bottom-right-radius: 1em;
+    box-shadow: 0 0 1em black;
 }
 
 .panel{
+    box-shadow: 0 0 1em black;
     display: grid;
     position: fixed;
     top: 4em;
-    border-radius: 1em;
+    left: 0;
+    border-top-right-radius: 1em;
+    border-bottom-right-radius: 1em;
     width: 3em;
     z-index: 69;
     overflow: hidden;
@@ -32,6 +36,7 @@ html{
     place-items: center;
 }
 .pause{
+    transition: 0.5s;
     margin: 0 auto;
     width: 1.8em;
     height: 1.8em;

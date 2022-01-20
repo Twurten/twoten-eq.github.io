@@ -375,12 +375,6 @@ a[href]{
 }
 
 
-.pause{
-    width: 2em;
-    height: 2em;
-    background-color: rgb(0, 0, 0);
-}
-
 .chat-inp:focus{
     border: 1px solid var(--col-s-accent);
 }
