@@ -23,7 +23,7 @@
         let senderEmail = "";
         let senderMessage = "";
         let discordMessage = "";
-        let prev = new Array();
+        let prev = "";
         let terminated = false;
 
         let input = document.getElementById("input");
@@ -37,9 +37,22 @@
                 inputt.classList.add("pi");
                 let div = document.getElementById("com");
                 div.appendChild(inputt);
-
+                
+                prev = input.value
                 switchCommand();
                 }
+            }
+        }, false);
+
+
+        input.addEventListener("keydown", (event) => {
+            let code = event.code;
+
+            if(code=="ArrowUp"){
+                input.value=prev
+            }
+            if(code=="ArrowDown"){
+                input.value=""
             }
         }, false);
 
