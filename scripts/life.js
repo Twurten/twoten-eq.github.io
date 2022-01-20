@@ -2,6 +2,17 @@ let canvas
 let ctx
 let generation
 let w, h
+let paused = false
+let btn = document.getElementById("pause")
+
+function pause(){
+    paused=!paused
+    if(paused){
+
+    }else{
+        
+    }
+}
 
 function init(){
     cs=10
@@ -103,11 +114,13 @@ let stepc = 0;
 let speed = 10;
 
 function step(timestamp) {
-    stepc++
-    if(stepc==speed){
-        nextstep()
-        repaint()
-        stepc=0
-    }
+    if(!paused){
+        stepc++
+        if(stepc==speed){
+            nextstep()
+            repaint()
+            stepc=0
+        }
+    }   
     window.requestAnimationFrame(step);
 }

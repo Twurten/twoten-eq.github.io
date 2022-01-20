@@ -15,17 +15,27 @@ html{
     border-bottom-right-radius: 1em;
 }
 
-.pamel{
+.panel{
     display: grid;
     position: fixed;
-    top: 3em;
+    top: 4em;
+    border-radius: 1em;
     width: 3em;
-    height: 6em;
+    z-index: 69;
+    overflow: hidden;
 }
 .button-l{
     background-color: #fff;
     width: 3em;
     height: 3em;
+    display: flex;
+    place-items: center;
+}
+.pause{
+    margin: 0 auto;
+    width: 1.8em;
+    height: 1.8em;
+    background-color: black;
 }
 @keyframes chillin{
 
