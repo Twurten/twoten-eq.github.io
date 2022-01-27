@@ -136,7 +136,7 @@
             disc.classList.add("p");
             disc.classList.add("btn");
             disc.onclick = function () {
-              navigator.clipboard.writeText("2(10#0242");
+              navigator.clipboard.writeText("");//////////////////////////////////
               createOutput("copied", lines);
             };
             break;
@@ -146,9 +146,6 @@
           case "rel":
             createOutput("reloading...", lines);
             location.reload();
-            break;
-          case "2(10#0242":
-            createOutput("yes this is my discord username", lines);
             break;
           case "bruh":
             let bruh = new Audio("./sounds/bruh.m4a");
