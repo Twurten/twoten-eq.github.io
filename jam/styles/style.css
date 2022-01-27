@@ -575,6 +575,11 @@ h4{
     border-radius: 1em;
     background-color: #fff;
 }
+
+.und-onhv:hover{
+    text-decoration: underline;
+    cursor: pointer;
+}
 .pointer-tg{
     border: 2px solid white;
     position: absolute;
