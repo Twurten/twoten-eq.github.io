@@ -18,7 +18,7 @@ function redirect(address){
         newLoc+="/";
     }
     console.log(newLoc)
-    newLoc+=address+".html"
+    newLoc+=address;//+".html"
     location=newLoc;
 }
 function highlight(id){

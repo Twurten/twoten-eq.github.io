@@ -250,7 +250,8 @@ h1 {
   width: 100%;
   height: 1em;
 }
-.row div img {
+.row div img,
+.row div svg {
   border: none;
   align-self: center;
   position: fixed;
