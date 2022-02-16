@@ -1,9 +1,0 @@
-<svg width="160" height="160" xmlns="http://www.w3.org/2000/svg">
-
- <g>
-  <title>Layer 1</title>
-  <rect id="svg_1" height="120" width="120" y="20" x="20" stroke="#000" fill="#ffffff"/>
-  <rect transform="rotate(45 80 80)" id="svg_2" height="100" width="100" y="30" x="30" stroke="#000" fill="#84D3DB"/>
-  <ellipse ry="40" rx="40" id="svg_3" cy="80" cx="80" stroke="#000" fill="#ffffff"/>
- </g>
-</svg>
