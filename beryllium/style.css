@@ -488,7 +488,7 @@ a[href]:hover{
     .ranks{
         display: block;
     }
-    .rank{
+    .rank, .box{
         margin: 1rem auto;
     }
     .bug-report{
