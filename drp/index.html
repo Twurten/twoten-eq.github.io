@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DRP</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <h1>DRP</h1>
+    <p>Easily customizeable Discord Rich Presence app that can run in background.</p>
+    <img src="./drp.png" alt="">
+    <div>
+        <button onclick="select(0)" id="select" class="selected">windows</button>
+        <button onclick="select(1)" id="select">mac</button>
+        <button onclick="select(2)" id="select">linux</button>
+    </div>
+    <button onclick="download()">donwload</button>
+    <a href="../">home</a>
+</body>
+
+<script>
+    let todwn = 0;
+
+    function select(i){
+        document.body.querySelectorAll("#select").forEach((val)=>{
+            val.classList.remove("selected");
+        })
+        document.body.querySelectorAll("#select")[i].classList.add("selected");
+        todwn=i;
+    }
+
+    function download(){
+        switch(todwn){
+            case 0:
+                window.open("https://twoten-eq.github.io/drp/download/windows");
+                break;
+            case 1:
+            window.open("https://twoten-eq.github.io/drp/download/mac");
+                break;
+            case 2:
+            window.open("https://twoten-eq.github.io/drp/download/linux");
+                break;
+            default:break;
+        }
+    }
+</script>
+
+</html>
