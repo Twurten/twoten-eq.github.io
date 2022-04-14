@@ -43,8 +43,7 @@
 
 
 body{
-    margin: 2rem 0 0 0;
-    padding: 2rem;
+    margin: 0;
     color: white;
     font-family: system-ui;
     display: flex;
@@ -60,11 +59,17 @@ header{
     position: fixed;
 }
 
+p{
+    margin: 0;
+}
+
 header h1{
     animation: glitchy 1s infinite;
     margin: 0;
 }
-
+.links ol li{
+    margin-top: 0.2rem;
+}
 .links ol li a{
     font-weight: normal;
     font-size: 1.5rem;
@@ -78,8 +83,7 @@ header h1{
 
 .links{
     animation: 1s fadein;
-    text-align: center;
-    padding: 1rem;
+    padding: 1rem 1rem 0 1rem;
     max-width: 50%;
     background-color: rgb(50,50,50);
 }
@@ -87,14 +91,14 @@ header h1{
 .repos{
     display: grid;
     width: fit-content;
-    padding: 1rem 2rem 2rem 3rem;
+    padding: 1rem 2rem 0 3rem;
     overflow: hidden;
 }
 
 a{
     margin: 0;
     font-weight: bold;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-decoration: none;
     color: white;
 }
@@ -107,7 +111,7 @@ a[href]:hover{
     max-width: 60%;
     overflow-wrap: break-word;
     padding: 1rem;
-    margin: 1rem 0 1rem 0;
+    margin: 2rem 0 0 0;
     width: fit-content;
     height: fit-content;
     animation: 1s fadein; 
