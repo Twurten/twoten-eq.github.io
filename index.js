@@ -12,11 +12,13 @@ function load(){
         let parsed = JSON.parse(request.responseText);
         st = request.status
         page++
+        
         for(let i = 0; i<parsed.length; i++){
             array.push(parsed[i]);
         }
         
         if(JSON.parse(request.responseText).length==0){
+            document.getElementById("loading").innerText=""
             for(let i = 0; i<array.length; i++){
                 createRepoDiv(array[i].name, array[i].html_url, array[i].description)
             }

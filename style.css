@@ -81,6 +81,44 @@ header h1{
     list-style-type: none;
 }
 
+.soc{
+    padding: 1rem;
+    text-align: center;
+    margin: 2rem;
+    place-items: center;
+    display: grid;
+    animation: 1s fadein; 
+    background-color:rgb(53, 54, 58);
+    border-bottom: 0.2rem solid aqua;
+    border-radius: .6rem .6rem 0 0;
+}
+
+.soc:active svg{
+    fill: aqua;
+}
+
+.soc a{
+    margin-bottom: 1rem;
+}
+
+.soc svg{
+    width: 5rem;
+    fill: white;
+}
+
+.soc:hover{
+    border-color: black;
+}
+#dcd:hover{
+    cursor: pointer;
+}
+.socs{
+    justify-content: center;
+    width: 100%;
+    display: flex;
+    padding: 2rem;
+}
+
 .links{
     animation: 1s fadein;
     padding: 1rem 1rem 0 1rem;
@@ -106,9 +144,13 @@ a{
 a[href]:hover{
     text-decoration: underline;
 }
-
+.back{
+    position: fixed;
+    bottom: 0.5rem;
+    left: 1rem;
+}
 .repo{
-    max-width: 60%;
+    max-width: 100%;
     overflow-wrap: break-word;
     padding: 1rem;
     margin: 2rem 0 0 0;
