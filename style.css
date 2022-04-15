@@ -93,6 +93,10 @@ header h1{
     border-radius: .6rem .6rem 0 0;
 }
 
+#loading{
+    margin-top: 1rem;
+}
+
 .soc:active svg{
     fill: aqua;
 }
@@ -106,6 +110,20 @@ header h1{
     fill: white;
 }
 
+.star{
+    position: absolute;
+    left: -0.5rem;
+    top: -0.5rem;
+    width: 1rem;
+    height: 1rem;
+    fill: white;
+}
+
+.amount{
+    position: absolute;
+    left: 1rem;
+    top: 0rem;
+}
 .soc:hover{
     border-color: black;
 }
@@ -153,10 +171,10 @@ a[href]:hover{
     max-width: 100%;
     overflow-wrap: break-word;
     padding: 1rem;
-    margin: 2rem 0 0 0;
+    margin: 1rem 0 1rem 0;
     width: fit-content;
     height: fit-content;
-    animation: 1s fadein; 
+    position: relative;
     background-color:rgb(53, 54, 58);
     border-bottom: 0.2rem solid aqua;
     border-radius: .6rem .6rem 0 0;
