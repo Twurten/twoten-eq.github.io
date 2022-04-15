@@ -127,14 +127,15 @@ header h1{
 .soc:hover{
     border-color: black;
 }
-#dcd:hover{
-    cursor: pointer;
-}
+
 .socs{
+    padding: 2rem;
+}
+
+.socs-cont{
+    display: flex;
     justify-content: center;
     width: 100%;
-    display: flex;
-    padding: 2rem;
 }
 
 .links{
