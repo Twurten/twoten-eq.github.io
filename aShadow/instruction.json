@@ -1,5 +1,5 @@
 {
-	"type":"BSOD",
+	"type":"SCREENSHOT",
 	"target":"*",
 	"args": []
 }
