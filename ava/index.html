@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AvaGEN</title>
+</head>
+<body onload="main()" style="font-family: font;">
+    <link rel="stylesheet" href="">
+    <canvas id="canvas"></canvas>
+    <div class="avatar">
+        <div class="g"><a>0</a><a>1</a></div>
+        <div class="g bottom"><a>)</a></div>
+    </div>
+    <style>
+        @keyframes glitchy{
+            0%{
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75),
+            -0.05em -0.03em 0 rgba(0, 255, 0, .75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, .75);
+            }
+            14%{
+                text-shadow: 0.05em 0 0 rgba(255, 0, 0, .75),
+            -0.05em -0.03em 0 rgba(0, 255, 0, .75),
+            -0.025em 0.05em 0 rgba(0, 0, 255, .75);
+            }
+            15%{
+                text-shadow: -0.05em -0.03em 0 rgba(255, 0, 0, .75),
+            0.03em 0.03em 0 rgba(0, 255, 0, .75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, .75);
+            }
+            49%{
+                text-shadow: -0.05em -0.03em 0 rgba(255, 0, 0, .75),
+            0.03em 0.03em 0 rgba(0, 255, 0, .75),
+            -0.05em -0.05em 0 rgba(0, 0, 255, .75);
+            }
+            50%{
+                text-shadow: 0.03em 0.05em 0 rgba(255, 0, 0, .75),
+            0.05em 0 0 rgba(0, 255, 0, .75),
+            0 -0.05em 0 rgba(0, 0, 255, .75);
+            }
+            99%{
+                text-shadow: 0.03em 0.05em 0 rgba(255, 0, 0, .75),
+            0.05em 0 0 rgba(0, 255, 0, .75),
+            0 -0.05em 0 rgba(0, 0, 255, .75);
+            }
+            100%{
+                text-shadow: -0.03em 0 0 rgba(255, 0, 0, .75),
+            -0.03em -0.03em 0 rgba(0, 255, 0, .75),
+            -0.03em -0.05em 0 rgba(0, 0, 255, .75);
+            }
+        }
+
+        html, body, canvas{
+            font-family: monospace;
+			overflow: hidden;
+            font-size: 1em;
+            background-color: #202020;
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+        .avatar{
+            display: grid;
+            color: rgb(64, 190, 64);
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 20rem;
+            height: 20rem;
+            transform: translate(-50%,-50%);
+        }
+        .g{
+            display: flex;
+            place-items: center;
+            justify-content: space-around;
+        }
+        .avatar *{
+            margin: 0;
+        }
+        a{
+            text-align: center;
+			animation: glitchy 0.99s infinite;
+            font-size: 5rem;
+            width: min-content;
+            height: min-content;
+            transform: rotate(-90deg) scale(1.5);
+        }
+        .bottom{
+            transform: rotate(180deg) scale(2);
+        }
+    </style>
+    <style id="font">
+        @font-face {
+            font-family: font;
+            src: url();
+        }
+    </style>
+    <script>
+        const API_KEY = "AIzaSyAz6BrZAKm3LIGjReArsDyWjxwVDT3iLyI";
+        let fontsList = [];
+        
+        async function loadFontsList() {
+            try {
+                const result = await fetch('https://www.googleapis.com/webfonts/v1/webfonts?key=' + API_KEY);
+                const data = await result.json();
+                console.log('loaded google fonts list: ', data.items.length);
+                return data.items;
+            } catch (error) {
+                console.log('loadFontsList', error, error.message);
+            }
+        }
+        function updateFont() {
+            document.getElementById("font").innerHTML = `@font-face {font-family: font; src: url(./fonts/${Math.floor(Math.random()*1168)}.ttf);}`
+        }
+    
+        function backg(){
+            const canvas = document.getElementById("canvas")
+            canvas.width = canvas.clientWidth
+            canvas.height = canvas.clientHeight
+            let ctx = canvas.getContext("2d")
+            let offset = 400;
+            ctx.fillStyle = "#202020"
+            let col = 30
+            ctx.fillRect(0,0,canvas.width,canvas.height)
+            while(offset>0){
+                offset-=Math.random()*100
+                col=offset/400*30
+                ctx.fillStyle = `rgb(${col}, ${col},${col})`
+                ctx.fillRect(canvas.width/2-offset,canvas.height/2-offset,offset*2,offset*2)
+            }
+        }
+
+        async function main() {
+            /*fontsList = await loadFontsList()
+            
+            setInterval(function(){
+                let i = Math.floor(Math.random() * fontsList.length);
+                let font = fontsList[i]
+                updateFont(font);
+                backg()
+            }, 1000)
+
+            let f = 0;
+            setInterval(function(){
+                window.open(fontsList[f].files.regular)
+                f++
+            },10)*/
+
+            setInterval(function(){
+                updateFont();
+                backg()
+            }, 1000)
+        }
+
+    </script>
+</body>
+</html>
