@@ -1,4 +1,13 @@
 let storage = document.getElementById("pixels")
+let mousedown = false
+
+document.body.addEventListener("mousedown", (e)=>{
+    mousedown = true
+})
+
+document.body.addEventListener("mouseup", (e)=>{
+    mousedown = false
+})
 
 document.body.addEventListener("mousemove", (e)=>{
     let x = e.x-(e.x%10)
@@ -22,7 +31,7 @@ function createPixel(x, y){
     p.style.top=y+"px"
     p.style.left=x+"px"
     p.classList.add("pixel")
-    p.style.opacity = 0.5
+    p.style.opacity = mousedown ? 1 : 0.5
     p.style.backgroundColor = "rgb("+Math.random()*256+","+Math.random()*256+","+Math.random()*256+")"
 
     storage.appendChild(p)
