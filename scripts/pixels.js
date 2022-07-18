@@ -1,23 +1,24 @@
 let storage = document.getElementById("pixels")
-let mousedown = false
-
-document.body.addEventListener("mousedown", (e)=>{
-    mousedown = true
-})
-
-document.body.addEventListener("mouseup", (e)=>{
-    mousedown = false
-})
+const size = 10
+let prevX = 0, prevY = 0
+let x = 0, y = 0
 
 document.body.addEventListener("mousemove", (e)=>{
-    let x = e.x-(e.x%10)
-    let y = e.y - (e.y%10)
+    prevX = x
+    prevY = y
+    x = e.x-(e.x%size)
+    y = e.y - (e.y%size)
+    
+    pixel3x3(x,y)
+})
+
+function pixel3x3(x, y){
     for(let i = -1; i<2; i++){
         for(let j = -1; j<2; j++){
-            createPixel(x+(i*10),y+(j*10))
+            createPixel(x+(i*size),y+(j*size))
         }
     }
-})
+}
 
 function createPixel(x, y){
     let s = document.getElementsByClassName("pixel")
@@ -31,7 +32,7 @@ function createPixel(x, y){
     p.style.top=y+"px"
     p.style.left=x+"px"
     p.classList.add("pixel")
-    p.style.opacity = mousedown ? 1 : 0.5
+    p.style.opacity = 0.5
     p.style.backgroundColor = "rgb("+Math.random()*256+","+Math.random()*256+","+Math.random()*256+")"
 
     storage.appendChild(p)
