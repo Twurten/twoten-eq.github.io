@@ -1,9 +1,14 @@
 const background = document.getElementById("background")
+const fields = document.getElementById("list")
+const debug = false
 
 function main(){
-    console.log("setting up background...")
     genBackground()
-    console.log("set up background")
+    let s = new Audio("./intro.mp3")
+    s.volume = 0.2
+    s.play()
+    if(debug) return
+    gatherData()
 }
 
 function genBackground(){
@@ -17,6 +22,21 @@ function genBackground(){
         context.fillRect(Math.floor(Math.random()*background.width),Math.floor(Math.random()*background.height),1,1)
     }
 
+}
+
+function gatherData(){
+    const req = new XMLHttpRequest();
+    let json
+    req.open("GET", "https://ipapi.co/json/");
+    req.send()
+    req.onload = () => {
+        console.log(req.responseText)
+        json = JSON.parse(req.responseText)
+        fields.innerText = fields.innerText.replace("IP:", "IP: "+json.ip)
+        fields.innerText = fields.innerText.replace("LATITUDE:", "LATITUDE: "+json.latitude)
+        fields.innerText = fields.innerText.replace("LONGITUDE:", "LONGITUDE: "+json.longitude)
+        fields.innerText = fields.innerText.replace("COUNTRY:", "COUNTRY: "+json.country)
+    }
 }
 
 document.body.onload = main

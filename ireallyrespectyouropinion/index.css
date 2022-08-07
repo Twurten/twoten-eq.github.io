@@ -22,20 +22,23 @@ canvas{
     min-width: 100%;
     text-align: center;
     z-index: 1;
-    animation: 15s fadeAway ease-out;
+    animation: 10s fadeAway ease-out;
+    opacity: 0;
 }
 
 .list{
-    transform: rotateX(65deg);
+    transform: rotateX(65deg) translateY(-100%);
     color: rgba(255, 255, 0, 0.8);
     width: 50%;
     display: flex;
+    font-family: monospace;
     font-size: 150%;
     justify-content: center;
     flex-direction: column;
     line-height: 200%;
-    animation-delay: 3s;
-    animation: scroll 5s linear;
+    animation: scroll 35s linear;
+    animation-delay: 5s;
+    opacity: 0;
 }
 
 .td{
@@ -60,12 +63,27 @@ canvas{
     0%{
         transform: translate(-50%,-50%) scale(15);
     }
+    70%{
+        opacity: 1;
+    }
     100%{
+        opacity: 0;
         transform: translate(-50%,-50%) scale(0);
     }
 }
 
 @keyframes scroll{
+    0%{
+        opacity: 1;
+        transform: rotateX(65deg) translateY(100%);
+    }
+    70%{
+        opacity: 1;
+    }
+    100%{
+        transform: rotateX(65deg) translateY(-100%);
+        opacity: 0;
+    }
 }
 
 @font-face {
