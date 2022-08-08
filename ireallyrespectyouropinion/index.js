@@ -1,13 +1,14 @@
 const background = document.getElementById("background")
 const fields = document.getElementById("list")
-const debug = false
+const params = new URLSearchParams(window.location.search)
 
 function main(){
     genBackground()
     let s = new Audio("./intro.mp3")
-    s.volume = 0.2
+    s.volume = 0.1
+    if(params.has("vol"))
+        s.volume = params.get("vol")
     s.play()
-    if(debug) return
     gatherData()
 }
 

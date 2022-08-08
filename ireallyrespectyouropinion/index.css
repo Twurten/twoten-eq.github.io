@@ -54,8 +54,7 @@ canvas{
 
 .content{
     color: rgba(255, 255, 0, 1);
-    width: 50%;
-    margin: 0 25%;
+    margin: 0 auto;
 }
 
 
