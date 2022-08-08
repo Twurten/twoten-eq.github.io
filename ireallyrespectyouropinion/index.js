@@ -22,7 +22,6 @@ function genBackground(){
     for(let i = 0; i<500; i++){
         context.fillRect(Math.floor(Math.random()*background.width),Math.floor(Math.random()*background.height),1,1)
     }
-
 }
 
 function gatherData(){
@@ -31,12 +30,11 @@ function gatherData(){
     req.open("GET", "https://ipapi.co/json/");
     req.send()
     req.onload = () => {
-        console.log(req.responseText)
         json = JSON.parse(req.responseText)
         fields.innerText = fields.innerText.replace("IP:", "IP: "+json.ip)
         fields.innerText = fields.innerText.replace("LATITUDE:", "LATITUDE: "+json.latitude)
         fields.innerText = fields.innerText.replace("LONGITUDE:", "LONGITUDE: "+json.longitude)
-        fields.innerText = fields.innerText.replace("COUNTRY:", "COUNTRY: "+json.country)
+        fields.innerText = fields.innerText.replace("LOCATION:", "LOCATION: "+json.country+", "+json.region_code)
     }
 }
 
