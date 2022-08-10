@@ -36,9 +36,31 @@ canvas{
     justify-content: center;
     flex-direction: column;
     line-height: 200%;
-    animation: scroll 35s linear;
+    animation: scroll 30s linear;
     animation-delay: 5s;
     opacity: 0;
+}
+
+.post{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: none;
+    justify-content: center;
+    font-family: monospace;
+    color: white;
+    opacity: 1;
+    font-size: 200%;
+}
+
+.post a{
+    text-decoration: none;
+    color: white;
+}
+
+.post a:hover{
+    text-decoration: underline;
 }
 
 .td{
@@ -68,6 +90,16 @@ canvas{
     100%{
         opacity: 0;
         transform: translate(-50%,-50%) scale(0);
+    }
+}
+
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+
+    100%{
+        opacity: 1;
     }
 }
 
