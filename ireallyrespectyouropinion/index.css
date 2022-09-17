@@ -36,8 +36,8 @@ canvas{
     justify-content: center;
     flex-direction: column;
     line-height: 200%;
-    animation: scroll 35s linear;
-    animation-delay: 5s;
+    animation: scroll 37s linear;
+    animation-delay: 7s;
     opacity: 0;
 }
 

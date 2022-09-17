@@ -3,7 +3,6 @@ const fields = document.getElementById("list")
 const params = new URLSearchParams(window.location.search)
 
 function main(){
-    console.log("test")
     document.getElementById("a").onanimationend = (e) => {
         document.getElementById("end").style.display = "flex"
         document.getElementById("end").style.animation = "fadeIn 0.8s linear"
@@ -34,6 +33,8 @@ function gatherData(){
     let json
     req.open("GET", "https://ipapi.co/json/");
     req.send()
+    if(params.has("name"))
+        add("LEGAL NAME", params.get("name"))
     add("SS NUMBER", (Math.random()+"").replace("0.", ""))
     add("IPv6", crypto.randomUUID().replaceAll("-", "::"))
     add("UPNP", "ENABLED")
