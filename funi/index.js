@@ -1,7 +1,41 @@
 let meme
+const c = document.getElementById("f")
+const ctx = c.getContext("2d")
+let w = c.width
+let h = c.height
+const params = new URLSearchParams(window.location.search)
+let r = "animemes"
+if(params.has("r"))
+    r = params.get("r")
+    
+let s = new Audio("./audio.mp3")
+s.volume = 0.1
+s.loop = true
+if(params.has("vol"))
+    s.volume = params.get("vol")
+s.play()
+
+let play = !params.has("pause")
+
+setInterval(()=>{
+    if(!play) return
+    main()
+}, 3000)
+
+function playPause(){
+    play = !play
+    document.getElementById("playpause").innerText = play ? "PAUSE" : "PLAY"
+}
+
+function updateCanvas(){
+    c.width = document.getElementById("uf").clientWidth
+    c.height = document.getElementById("uf").clientHeight
+    w = c.width
+    h = c.height
+}
 
 function fetchUnfunnyMeme(){
-    const href = "https://meme-api.herokuapp.com/gimme/animemes/1"
+    const href = `https://meme-api.herokuapp.com/gimme/${r}/1`
     let request = new XMLHttpRequest()
     request.open("GET", href)
     request.send()
@@ -23,22 +57,22 @@ function setDisplays(){
 }
 
 function drawFunny(){
-    const c = document.getElementById("f")
-    const ctx = c.getContext("2d")
-    c.width = c.clientWidth
-    c.height = c.clientHeight
-    const w = c.width
-    const h = c.height
+    updateCanvas()
     ctx.drawImage(document.getElementById("uf"), 0,0,w,h)
-    ohWellidkHowToDoTheActualImageReplacing(ctx, w, h)
+    ohWellidkHowToDoTheActualImageReplacing(Math.floor(Math.random()*13))
+}
+function drawFunnyManual(i){
+    updateCanvas()
+    ctx.drawImage(document.getElementById("uf"), 0,0,w,h)
+    ohWellidkHowToDoTheActualImageReplacing(i)
 }
 
 function redo(){
     drawFunny()
 }
 
-function ohWellidkHowToDoTheActualImageReplacing(ctx, w, h){
-    switch(Math.floor(Math.random()*11)){
+function ohWellidkHowToDoTheActualImageReplacing(i){
+    switch(i){
         case 0: {
             //TOP HALF
             ctx.drawImage(randomFunny(),0,0,w,h/2)
@@ -70,8 +104,9 @@ function ohWellidkHowToDoTheActualImageReplacing(ctx, w, h){
             break;
         }
         case 4: {
-            //FULL
-            ctx.drawImage(randomFunny(),0,0,w,h)
+            //BOTTOM QUARTERS
+            ctx.drawImage(randomFunny(),w/2,h/2,w/2,h/2)
+            ctx.drawImage(randomFunny(),0,h/2,w/2,h/2)
             break;
         }
         case 5:{
@@ -94,6 +129,17 @@ function ohWellidkHowToDoTheActualImageReplacing(ctx, w, h){
         case 10:{
             //FULL RIGHT SIDE
             ctx.drawImage(randomFunny(),w/2,0,w/2,h)
+            break;
+        }
+        case 11:{
+            //FULL TOP PADDING
+            ctx.drawImage(randomFunny(),0,h/6,w,h)
+            break;
+        }
+        case 12: {
+            //TOP QUARTERS
+            ctx.drawImage(randomFunny(),w/2,0,w/2,h/2)
+            ctx.drawImage(randomFunny(),0,0,w/2,h/2)
             break;
         }
     }

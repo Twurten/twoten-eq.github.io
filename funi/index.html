@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+    <div class="buttons">
+        <button onclick="playPause()" id="playpause">PAUSE</button>
+        <button onclick="redo()">REDO</button>
+        <button onclick="main()">NEXT</button>
+    </div>
     <div id="imgs">
         <img src="./img/0.png" alt="" id="0">
         <img src="./img/1.png" alt="" id="1">
@@ -26,10 +31,6 @@
             <a href="../">main</a>
             <canvas id="f"></canvas>
         </div>
-    </div>
-    <div class="buttons">
-        <button onclick="redo()">REDO</button>
-        <button onclick="main()">NEXT</button>
     </div>
 </body>
 </html>

@@ -178,6 +178,7 @@ a{
 
 a[href]:hover{
     text-decoration: underline;
+    position: relative;
 }
 .back{
     position: fixed;
@@ -205,3 +206,27 @@ footer{
 #end{
     display: none;
 }
+
+*[desc]::after{
+    text-align: center;
+    display: flex;
+    border-radius: 2rem;
+    padding: .5rem;
+    width: 10rem;
+    display: block;
+    position: absolute;
+    content: attr(desc);
+    left: 120%;
+    top: 0;
+    z-index: 10;
+    background-color: #202020;
+    border: 1px solid white;
+    opacity: 0;
+}
+
+
+*[desc]:hover::after{
+    transition: .3s;
+    opacity: 1;
+}
+
