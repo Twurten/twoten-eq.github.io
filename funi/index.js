@@ -18,6 +18,7 @@ function main(){
 
 function setDisplays(){
     document.getElementById("uf").src = meme.memes[0].url
+    document.getElementById("src").href = meme.memes[0].postLink
     document.getElementById("uf").onload = drawFunny
 }
 
@@ -32,8 +33,12 @@ function drawFunny(){
     ohWellidkHowToDoTheActualImageReplacing(ctx, w, h)
 }
 
+function redo(){
+    drawFunny()
+}
+
 function ohWellidkHowToDoTheActualImageReplacing(ctx, w, h){
-    switch(Math.floor(Math.random()*6)){
+    switch(Math.floor(Math.random()*11)){
         case 0: {
             //TOP HALF
             ctx.drawImage(randomFunny(),0,0,w,h/2)
@@ -53,7 +58,16 @@ function ohWellidkHowToDoTheActualImageReplacing(ctx, w, h){
             //BOTTOM LEFT QUARTER
             ctx.drawImage(randomFunny(),0,h/2,w/2,h/2)
             break;
-
+        }
+        case 6: {
+            //TOP RIGHT QUARTER
+            ctx.drawImage(randomFunny(),w/2,0,w/2,h/2)
+            break;
+        }
+        case 7: {
+            //BOTTOM RIGHT QUARTER
+            ctx.drawImage(randomFunny(),w/2,h/2,w/2,h/2)
+            break;
         }
         case 4: {
             //FULL
@@ -64,6 +78,22 @@ function ohWellidkHowToDoTheActualImageReplacing(ctx, w, h){
             //LEFT SIDE
             ctx.drawImage(randomFunny(),0,0,w/2,h/2)
             ctx.drawImage(randomFunny(),0,h/2,w/2,h/2)
+            break;
+        }
+        case 8:{
+            //FULL LEFT SIDE
+            ctx.drawImage(randomFunny(),0,0,w/2,h)
+            break;
+        }
+        case 9:{
+            //RIGHT SIDE
+            ctx.drawImage(randomFunny(),w/2,0,w/2,h/2)
+            ctx.drawImage(randomFunny(),w/2,h/2,w/2,h/2)
+            break;
+        }
+        case 10:{
+            //FULL RIGHT SIDE
+            ctx.drawImage(randomFunny(),w/2,0,w/2,h)
             break;
         }
     }
