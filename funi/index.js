@@ -146,7 +146,7 @@ function ohWellidkHowToDoTheActualImageReplacing(i){
 }
 
 function randomFunny(){
-    return document.getElementById(Math.floor(Math.random()*5))
+    return document.getElementById(Math.floor(Math.random()*8))
 }
 
 main()
